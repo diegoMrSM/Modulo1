@@ -6,7 +6,7 @@ function BinarioADecimal(num) {
 
     for(var i = 0; i < num.length; i++){
       
-      if(num[(num.length - 1)-(i)]== 1){
+      if(num[(num.length - 1)-(i)]=== 1){
       
         numDec = numDec + Math.pow(2, i);
       }
@@ -31,7 +31,7 @@ function DecimalABinario(num) {
  return numBin;
 
 }
-
+console.log(DecimalABinario(8)); // a modo de ejemplo 
 
 module.exports = {
   BinarioADecimal,
