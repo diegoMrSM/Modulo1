@@ -30,7 +30,7 @@ var countArray = function(array) {
         return acc + elemento;
         });*/
         var suma = 0;
-		var aux = 0;
+		
 	
         const recorrerArray = function(array){
 			
@@ -43,7 +43,7 @@ var countArray = function(array) {
 					
 				} else {
                
-					aux = array[i];
+					
 					
 					console.log(array[i]);
 					
