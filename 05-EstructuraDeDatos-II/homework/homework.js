@@ -180,14 +180,15 @@ HashTable.prototype.set = function(key, value){
     throw new TypeError('First parameter is not a string')
     }
     var nArrBck = this.hash(key);
-    var obj = new Obj(key, value);
+    //var obj = new Obj(key, value);
           
        
-      if(this.arrBck[nArrBck] === (undefined || null)) {
+      if(this.arrBck[nArrBck] === (undefined)) {  //solo undefined si no se inicializa el array con objetos en la clase HashTable
         var obj = new Obj(key, value);
         this.arrBck[nArrBck] = obj;
         this.arrBck[nArrBck][key] = value;
        }else {
+
         this.arrBck[nArrBck][key] = value;
        }
 
