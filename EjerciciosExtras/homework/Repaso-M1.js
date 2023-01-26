@@ -18,11 +18,11 @@ var countArray = function(array) {
     // Tu código aca:
     /*const suma = array.reduce(function (acc, elemento){
 
-
+            
 
             if(Array.isArray(elemento)){
                 
-            
+                //console.log(elemento);
               acc = acc + countArray(elemento);
 
             }
@@ -78,6 +78,34 @@ var countArray = function(array) {
 
 var countProps = function(obj) {
     // Tu código aca:
+    var suma = 0;
+    //var array =[];
+
+    const recorrerObj = function(objeto){
+
+      let  array = Object.getOwnPropertyNames(objeto);
+
+            for(let i = 0; i < Object.getOwnPropertyNames(objeto).length; i++ ){ // interesante lo que pasa si uso array.length en lugar de getOwnPropertyNames(objeto).length. el array termino siendo pisado por o :true y retornando a las recursiones pendientes con ése array de longitud 1
+                
+                    if(typeof objeto[''+array[i]+''] != 'object' && !Array.isArray(objeto[''+array[i]+''])){
+                       
+                        suma++; 
+                        
+                    }else{
+                        if(Array.isArray(objeto[''+array[i]+''])){
+                        suma++; } else {  suma++;
+                            
+                        recorrerObj(objeto[''+array[i]+'']);  }
+
+                    }
+                    
+            }
+            
+        }
+    
+       recorrerObj(obj);
+
+       return suma;
 
 }
 
@@ -128,7 +156,33 @@ var closureMult = function(multiplier) {
 // que debe retornar la suma total de los valores dentro de cada nodo del arbol
 BinarySearchTree.prototype.sum = function() {
     // Tu código aca:
+var suma=this.value;
+var nodo = this;
+    const  recArb = function(nodo){
+            
+            if(!nodo.value) {
+                    
+                     suma = 0;
+                }
 
+            if(nodo.left) {
+                    
+                suma += nodo.left.value;
+                recArb(nodo.left);
+                }
+            
+
+            if(nodo.right) {
+                
+                suma += nodo.right.value;
+                recArb(nodo.right);
+            }
+        }
+
+
+      recArb(nodo);
+
+    return suma;
 }
 
 module.exports = {
